@@ -51,18 +51,24 @@ header {
     /* Enable smooth scrolling when we programmatically scroll */
     scroll-behavior: smooth;
     position: relative; /* keep positioning context if needed */
+    scroll-snap-type: x mandatory; /* snap to each card to avoid partial views */
 }
 
 /* Карточка одной модели */
 .model-card {
-     /* Force a square display area. The visual size will be 1110x1110 by default
-         but will scale down on small viewports due to max-width: 100%. */
-     width: 950px;
-     height: 950px;
+     /* Default to filling the viewport width; JS will set exact sizes based on
+        header and viewport so the image is always fully visible. */
+     width: 100vw;
+     height: calc(100vh - 160px);
     flex: 0 0 auto;
     background: #252525;
     border-radius: 8px;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
 }
 
 /* Floating prompt overlay at bottom of each comparison row */
@@ -113,7 +119,7 @@ header {
     width: 100%;
     height: 100%;
     display: block;
-    object-fit: cover; /* crop to fill square */
+    object-fit: contain; /* show full image without cropping */
     background-color: #000;
 }
 

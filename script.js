@@ -90,9 +90,6 @@ function renderGallery(data) {
             const img = document.createElement('img');
             img.loading = 'lazy';
             img.alt = model.name;
-            // Request layout size so images are displayed as 1110x1110 by default
-            img.width = 950;
-            img.height = 950;
             // Функция-обработчик ошибок: пробуем следующий кандидат или показываем заглушку
             img.onerror = function() {
                 if (candidates.length > 0) {
@@ -119,46 +116,65 @@ function renderGallery(data) {
             modelsGrid.appendChild(modelCard);
         });
 
-        // Enable faster horizontal scroll with vertical mouse wheel over this grid.
-        // If the user scrolls further when the grid is already at the right edge,
-        // smoothly scroll the page to the next comparison row (next image set).
-        const H_SCROLL_SPEED = 5; // tweak this number to increase/decrease speed
-        const RIGHT_EDGE_THRESHOLD = 8; // px, tolerance for end detection
-        const LEFT_EDGE_THRESHOLD = 8; // px, tolerance for left edge
+        // Snap-scroll behavior: wheel moves between full cards (no partial views).
+        // If user keeps scrolling past edges, navigate to next/previous row.
+        const RIGHT_EDGE_THRESHOLD = 8; // px tolerance
+        const LEFT_EDGE_THRESHOLD = 8;
+        let wheelLocked = false; // simple throttle to avoid rapid double-navigations
         modelsGrid.addEventListener('wheel', function(e) {
-            // Prevent the default page scroll while we handle horizontal movement
             e.preventDefault();
             e.stopPropagation();
 
-            // Prefer vertical delta (mouse wheel) but fall back to deltaX (touchpad)
-            const delta = Math.abs(e.deltaY) > 0 ? e.deltaY : e.deltaX;
-            // Multiply to increase horizontal scroll speed
-            this.scrollLeft += delta * H_SCROLL_SPEED;
+            if (wheelLocked) return;
+            wheelLocked = true;
+            setTimeout(() => { wheelLocked = false; }, 300);
 
-            // Check edges
+            // Determine direction: prefer vertical wheel
+            const dir = (Math.abs(e.deltaY) > Math.abs(e.deltaX)) ? Math.sign(e.deltaY) : Math.sign(e.deltaX);
+            if (dir === 0) return;
+
+            const cardWidth = this.clientWidth;
+            const cardCount = this.children.length;
+            const currentIndex = Math.round(this.scrollLeft / cardWidth);
+            const targetIndex = currentIndex + dir;
+
+            // If target within this grid, snap to that card
+            if (targetIndex >= 0 && targetIndex < cardCount) {
+                this.scrollTo({ left: targetIndex * cardWidth, behavior: 'smooth' });
+                return;
+            }
+
+            // Otherwise, if we're beyond right/left, move to next/previous row
             const atRight = this.scrollLeft + this.clientWidth >= this.scrollWidth - RIGHT_EDGE_THRESHOLD;
             const atLeft = this.scrollLeft <= LEFT_EDGE_THRESHOLD;
 
-            // If user is scrolling right (positive delta) and we're at the right end,
-            // advance to the next comparison row.
-            if (atRight && delta > 0) {
+            if (dir > 0 && atRight) {
                 const nextRow = rowDiv.nextElementSibling;
-                if (nextRow) {
-                    nextRow.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            }
-
-            // If user is scrolling up (negative delta) and we're at the left end,
-            // move to the previous comparison row.
-            if (atLeft && delta < 0) {
+                if (nextRow) nextRow.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            } else if (dir < 0 && atLeft) {
                 const prevRow = rowDiv.previousElementSibling;
-                if (prevRow) {
-                    prevRow.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
+                if (prevRow) prevRow.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
         }, { passive: false });
 
         rowDiv.appendChild(modelsGrid);
+
+        // After building the grid, adjust card sizes so each card fills the viewport
+        // height (minus header) and width, ensuring the image is fully visible.
+        function updateCardSizesForGrid() {
+            const headerEl = document.querySelector('header');
+            const headerHeight = headerEl ? headerEl.offsetHeight : 0;
+            // account for body padding (20 top + 20 bottom) and some gap
+            const availableHeight = Math.max(200, window.innerHeight - headerHeight - 120);
+            const cardWidth = window.innerWidth;
+            Array.from(modelsGrid.children).forEach(card => {
+                card.style.width = cardWidth + 'px';
+                card.style.height = availableHeight + 'px';
+            });
+        }
+        updateCardSizesForGrid();
+        // Recompute sizes on window resize
+        window.addEventListener('resize', updateCardSizesForGrid);
 
         // Create prompt overlay and append after the grid so it overlays images
         const promptOverlay = document.createElement('div');
