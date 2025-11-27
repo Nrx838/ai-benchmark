@@ -1,0 +1,130 @@
+body {
+    background-color: #121212;
+    color: #e0e0e0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* Блок одного промта (Строка) */
+.comparison-row {
+    background-color: #1e1e1e;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #333;
+    position: relative;
+}
+
+/* Текст промта */
+.prompt-text {
+    /* Larger adaptive prompt text for readability */
+    font-size: clamp(16px, 2.4vw, 22px);
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #333;
+    color: #fff;
+    font-weight: 600;
+}
+
+.prompt-label {
+    color: #bbb;
+    /* Slightly larger label */
+    font-size: clamp(11px, 1.4vw, 14px);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: block;
+    margin-bottom: 8px;
+}
+
+/* Контейнер для картинок (горизонтальный скролл) */
+.models-grid {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto; /* Позволяет скроллить влево-вправо */
+    padding-bottom: 0; /* overlay sits over image bottom, no extra padding */
+    /* Enable smooth scrolling when we programmatically scroll */
+    scroll-behavior: smooth;
+    position: relative; /* keep positioning context if needed */
+}
+
+/* Карточка одной модели */
+.model-card {
+     /* Force a square display area. The visual size will be 1110x1110 by default
+         but will scale down on small viewports due to max-width: 100%. */
+     width: 950px;
+     height: 950px;
+    flex: 0 0 auto;
+    background: #252525;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Floating prompt overlay at bottom of each comparison row */
+.prompt-overlay {
+    position: absolute;
+    left: 20px;
+    right: 20px;
+    bottom: 10px; /* sit close to the bottom of the images */
+    background: rgba(0,0,0,0.6); /* 60% opacity */
+    color: #fff;
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: clamp(14px, 1.8vw, 18px);
+    backdrop-filter: blur(4px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.6);
+    z-index: 5;
+}
+
+.prompt-overlay .prompt-label {
+    color: #ddd;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.prompt-overlay .prompt-body {
+    color: #eee;
+    line-height: 1.3;
+    max-height: 6.4em; /* limit to a few lines */
+    overflow: hidden;
+}
+
+.model-header {
+    padding: 10px 12px;
+    text-align: center;
+    /* Larger adaptive model name font */
+    font-size: clamp(14px, 1.8vw, 20px);
+    font-weight: 800;
+    background: rgba(44,44,44,0.95);
+    color: #eee;
+    border-bottom: 1px solid #333;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.model-card img {
+    /* Fill the square area and crop if necessary to keep 1:1 */
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover; /* crop to fill square */
+    background-color: #000;
+}
+
+/* Скроллбар для красоты */
+.models-grid::-webkit-scrollbar {
+    height: 8px;
+}
+.models-grid::-webkit-scrollbar-track {
+    background: #1e1e1e;
+}
+.models-grid::-webkit-scrollbar-thumb {
+    background: #444;
+    border-radius: 4px;
+}
