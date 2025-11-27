@@ -116,44 +116,46 @@ function renderGallery(data) {
             modelsGrid.appendChild(modelCard);
         });
 
-        // Snap-scroll behavior: wheel moves between full cards (no partial views).
-        // If user keeps scrolling past edges, navigate to next/previous row.
-        const RIGHT_EDGE_THRESHOLD = 10; // px tolerance
-        const LEFT_EDGE_THRESHOLD = 10;
-        let wheelLocked = false; // simple throttle to avoid rapid double-navigations
+        // Continuous horizontal scroll with over-scroll detection to move between rows.
+        const RIGHT_EDGE_THRESHOLD = 12; // px tolerance
+        const LEFT_EDGE_THRESHOLD = 12;
+        const H_SCROLL_SPEED = 6; // horizontal speed multiplier
+        const OVERSCROLL_THRESHOLD = 200; // accumulated delta to trigger row change
+        modelsGrid._overscroll = 0;
         modelsGrid.addEventListener('wheel', function(e) {
+            // Prevent page from scrolling while interacting with grid
             e.preventDefault();
             e.stopPropagation();
 
-            if (wheelLocked) return;
-            wheelLocked = true;
-            setTimeout(() => { wheelLocked = false; }, 300);
-
-            // Determine direction: prefer vertical wheel
+            // Determine delta (prefer vertical wheel)
+            const delta = Math.abs(e.deltaY) > 0 ? e.deltaY : e.deltaX;
             const dir = (Math.abs(e.deltaY) > Math.abs(e.deltaX)) ? Math.sign(e.deltaY) : Math.sign(e.deltaX);
             if (dir === 0) return;
 
-            const cardWidth = this.clientWidth;
-            const cardCount = this.children.length;
-            const currentIndex = Math.round(this.scrollLeft / cardWidth);
-            const targetIndex = currentIndex + dir;
+            // Scroll horizontally
+            this.scrollLeft += delta * H_SCROLL_SPEED;
 
-            // If target within this grid, snap to that card
-            if (targetIndex >= 0 && targetIndex < cardCount) {
-                this.scrollTo({ left: targetIndex * cardWidth, behavior: 'smooth' });
-                return;
-            }
-
-            // Otherwise, if we're beyond right/left, move to next/previous row
             const atRight = this.scrollLeft + this.clientWidth >= this.scrollWidth - RIGHT_EDGE_THRESHOLD;
             const atLeft = this.scrollLeft <= LEFT_EDGE_THRESHOLD;
 
-            if (dir > 0 && atRight) {
-                const nextRow = rowDiv.nextElementSibling;
-                if (nextRow) nextRow.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            } else if (dir < 0 && atLeft) {
-                const prevRow = rowDiv.previousElementSibling;
-                if (prevRow) prevRow.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            // If at edge, accumulate overscroll; if overscroll passes threshold, navigate rows
+            if (atRight && dir > 0) {
+                this._overscroll += delta;
+                if (this._overscroll > OVERSCROLL_THRESHOLD) {
+                    const nextRow = rowDiv.nextElementSibling;
+                    if (nextRow) nextRow.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    this._overscroll = 0;
+                }
+            } else if (atLeft && dir < 0) {
+                this._overscroll += Math.abs(delta);
+                if (this._overscroll > OVERSCROLL_THRESHOLD) {
+                    const prevRow = rowDiv.previousElementSibling;
+                    if (prevRow) prevRow.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    this._overscroll = 0;
+                }
+            } else {
+                // reset if not at any edge
+                this._overscroll = 0;
             }
         }, { passive: false });
 
@@ -165,8 +167,10 @@ function renderGallery(data) {
             const headerEl = document.querySelector('header');
             const headerHeight = headerEl ? headerEl.offsetHeight : 0;
             // account for body padding (20 top + 20 bottom) and some gap
-            const availableHeight = Math.max(200, window.innerHeight - headerHeight - 120);
-            const cardWidth = window.innerWidth;
+            // make available height larger (smaller reserved margins) so images are bigger
+            const availableHeight = Math.max(300, window.innerHeight - headerHeight - 80);
+            // Make cards larger: aim for ~50% of viewport width, capped between 480 and 1110
+            const cardWidth = Math.min(1110, Math.max(480, Math.floor(window.innerWidth * 0.5)));
             Array.from(modelsGrid.children).forEach(card => {
                 card.style.width = cardWidth + 'px';
                 card.style.height = availableHeight + 'px';
