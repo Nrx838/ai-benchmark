@@ -1,0 +1,89 @@
+id,category,prompt
+1,Realism,"A cinematic ultra-realistic close-up portrait of a 28-year-old woman, natural skin pores, soft rim light, shallow depth of field, 50mm lens, no makeup imperfections, neutral background."
+2,Realism,"Real-life full-body man walking in a rainy Tokyo street at night, reflections on wet asphalt, neon lights, natural posture, realistic fabric folds."
+3,Realism,"Extreme close-up macro portrait of an elderly man with deep wrinkles, skin texture, tiny facial hairs, natural imperfections, soft studio lighting."
+,,
+5,Text,A product packaging mockup with clean readable text: ‘Our premium formula improves clarity and precision.’ All text must be perfectly sharp and aligned.
+6,Text,"A billboard design with crisp text in English, Arabic, Chinese, and Russian: ‘FLYMY AI’ / ‘فلاي ماي اي آي’ / ‘飞迈人工智能’ / ‘ФЛАЙМАЙ АИ’. Perfect font rendering."
+7,Styles,"Dynamic anime key-visual of a cyberpunk girl jumping between skyscrapers, cel shading, glowing accents, clean stylized lines."
+8,Styles,"Baroque oil painting of a king in golden armor, heavy brushstrokes, warm candlelight, deep shadows."
+9,Styles,"Pixar-style 3D character smiling in a toy shop, subsurface scattering, glossy materials, global illumination."
+10,Logic,"A transparent glass sphere floating above water, accurate caustics, correct refraction, realistic lighting."
+11,Logic,"A portrait of a woman holding a bouquet of flowers with both hands, fingers clearly visible, natural pose, correct anatomy."
+12,Logic,"A cat sitting on top of a robot vacuum cleaner, perspective-correct shadows and contact points."
+13,Composition,"A bustling Moroccan street market, multiple vendors, colorful textiles, detailed fruits, layered depth, realistic lighting."
+14,Composition,"Modern Scandinavian living room interior, soft indirect sunlight, detailed textures (fabric, wood grain), perfect perspective."
+15,Composition,"A group of 12 different people standing in a line, natural variations in height, clothing, ethnicity, correct proportions."
+16,Fantasy,"A knight in dark armor standing in a foggy forest, glowing runes, volumetric light shafts."
+17,Fantasy,"A futuristic lab with holograms, floating UI elements, blue rim lights, chrome surfaces, detailed reflections."
+18,Materials,"A close-up of a polished chrome sphere on a black table, perfect reflections, high gloss."
+19,Materials,"A stack of textiles: wool, velvet, denim, silk. All textures clearly differentiated."
+20,Materials,A detailed macro photo of a croissant with buttery layers and crumbs on a wooden table.
+21,Face,"Close-up portrait of the same character in three emotional states: neutral, smiling, surprised."
+22,Face,"Portrait of the same woman from 5 angles: front, left profile, right profile, 45 degrees, top-down."
+23,Face,"A consistent character standing in a park, same face as previous prompt, natural lighting."
+24,Cinematic,"Film noir detective in a rainy alley, strong contrast, cigarette smoke, dramatic lighting."
+25,Cinematic,"A surfer standing on a cliff at sunset, warm lens flare, long shadows."
+26,Abstract,A fractal geometric structure with neon edges and infinite recursion.
+27,Abstract,A perfectly rendered Penrose triangle floating in a minimalistic room.
+28,Marketplace,"Studio product photo of a stainless steel water bottle on pure white background, soft shadows, crisp edges, high detail."
+29,Marketplace,"Product shot of a luxury wristwatch on white background, sharp reflections, visible engravings, accurate proportions."
+,,
+,,
+32,Marketplace,"Minimalist lifestyle scene: skincare serum bottle on marble table, soft morning light, realistic glass reflections."
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+41,Marketplace,"Same product in 6 color variations, consistent lighting, consistent angles."
+42,EdgeCase,"A group of five people standing close together, all hands visible, natural anatomy, accurate finger count."
+43,EdgeCase,"A man tying shoelaces, hands clearly visible, correct finger positions."
+,,
+45,EdgeCase,"A nutrition facts label with perfectly readable tiny text, high accuracy."
+46,EdgeCase,"A poster with five lines of text in different fonts, all crisp and aligned."
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+59,EdgeCase,A chair casting two light-source shadows with correct angles.
+,,
+61,EdgeCase,"Unretouched close-up of a woman’s cheek with pores, tiny hairs, subtle blemishes."
+62,Styles,"Cyberpunk armor made of rusted metal, glowing glass and soft velvet padding"
+63,Styles,"Woodblock Ukiyo-e print of a stormy sea, sharp outlines, traditional dyes"
+64,Styles,"Pastel chalk drawing of a portrait, soft powder texture, visible strokes"
+65,Styles,"Half of the scene is 3D render, the other half pencil sketch, seamless blend"
+66,Styles,Scene illuminated only by reflective surfaces and bounced light
+67,TM,"Creative automotive advertisement for the Nissan X-Trail, executed in a surreal, high-concept visual style that blends adventure with humor and cinematic polish.
+
+Composition:
+A khaki-green Nissan X-Trail is parked in an urban environment with a futuristic city skyline in the background. The vehicle is clean and sharply lit, emphasizing its contours and robust design. On its roof, however, an enormous pile of wild jungle gear and a massive coiled snake spill outward — including ropes, camping tools, and a bicycle entangled in the creature’s coils. The juxtaposition transforms the sleek SUV into a symbol of wilderness adventure, visually representing the tagline “ADVENTURE INSIDE.”
+
+Typography & branding:
+– Tagline (bottom left): “NUOVO NISSAN X-TRAIL — ADVENTURE INSIDE” in modern sans-serif typography, balancing Italian elegance with rugged energy.
+– Nissan logo and slogan “Innovation that excites” placed in the top-right corner on a bright red square, grounding the image in the brand’s visual identity.
+
+Lighting & tone:
+Bright daylight illumination with soft urban reflections enhances realism. The color palette combines metallic greens, grays, and warm urban neutrals, emphasizing contrast between civilization and raw adventure.
+
+Mood: playful, daring, and imaginative — suggesting that even in the city, the X-Trail carries the spirit of the wild within.
+Tone: premium yet adventurous, balancing sophistication with off-road freedom."
+68,TM,"Promotional concept poster for the iPhone Seventy Pro Max, designed in a futuristic, high-tech aesthetic emphasizing luxury and innovation.  Composition: The image showcases a metallic orange smartphone presented on a glowing pedestal within a geometric stage environment. The main phone stands upright in the center with its display illuminated by neon orange light patterns, suggesting cutting-edge OLED brilliance. Smaller insets on the left highlight the triple-lens camera module, revealing intricate design details and precision craftsmanship.  Typography & layout: – Header: “iPhone Seventy Pro Max” in clean, uppercase sans-serif with a stylized horizontal line motif, evoking modern Apple-inspired minimalism. – Subtext: numbered specifications are neatly listed below the product, detailing performance and features in a concise tech-poster style.  Key highlights:  A19 Pro (3nm) chip – delivering top-tier processing power and energy efficiency.  6.9-inch LTPO Super Retina XDR OLED display – supporting 120Hz ProMotion refresh rate and 3000 nits peak brightness.  Triple 48MP rear camera system – featuring wide, ultrawide, and periscope telephoto lenses with LiDAR for advanced imaging and low-light excellence.  Lighting & color palette: Warm metallic hues — burnt orange, gold, and amber, contrasted with deep black shadows and glowing neon outlines — create a cinematic product reveal atmosphere.  Mood: bold, elite, and visionary — blending technology showcase energy with luxury product presentation. Tone: premium, aspirational, and futuristic — projecting the evolution of smartphone innovation.   "
+69,TM,"Nighttime exterior shot of a cozy suburban house decorated with multicolor LED Christmas string lights, captured in vibrant festive lighting, 8K hyperrealistic style. The house façade is outlined with dense strings of lights in red, blue, green, and warm white, forming bright holiday patterns — including a triangular tree shape in the gable and illuminated garlands around windows, rooflines, and bushes.  In the lower-right inset, a close-up macro photo shows a tangled cluster of glowing LED fairy lights, emphasizing color brilliance and reflective texture on the transparent wires. The small bulbs emit a soft neon-like glow with cool and warm tones intermingling.  Lighting & composition: – Shot during blue hour for rich sky contrast and warm luminosity. – Balanced exposure highlighting the intensity and variety of colors without overexposure. – Bokeh effects in the background enhance depth and magical ambiance.  Color palette: electric blue, emerald green, ruby red, amber yellow, violet accents. Mood: festive, joyful, nostalgic — evoking the warmth and sparkle of holiday celebrations.  Optional text layout for design use: – Header: “Illuminate Your Holidays” in bold geometric sans-serif (e.g., Montserrat Bold). – Subtext: “Vibrant LED string lights for indoor & outdoor magic.” in light italic serif (e.g., Playfair Display Italic). – Tagline: “Color your nights bright.” in thin uppercase (e.g., Futura PT Light).    "
+70,TM,"Outdoor lifestyle shot on a sunny beach, natural daylight, warm golden tones, shallow depth of field, cinematic 4K realism. Foreground dominated by a close-up of a woman’s bare foot in focus, with playful black text written across the sole. In the blurred background, the woman reclines on a towel near the shoreline, surrounded by soft beige sand and scattered white daisies that add a whimsical, organic touch. The ocean horizon and blue sky complete the tranquil coastal atmosphere.  Text layout: handwritten-style sans-serif font printed across the foot in bold black, reading a motivational call-to-action about a 21-day Face Yoga Challenge for women. The typography follows the curve of the foot naturally, creating an intimate, eye-catching effect.  Lighting: soft golden sunlight with gentle highlights on the skin and subtle bokeh in the background, evoking warmth and vitality.  Color palette: sandy beige, golden skin tone, pastel blue sky, turquoise sea, white and yellow daisies, black text contrast.  Mood: relaxed, empowering, summer wellness energy — combining playful beach aesthetics with a self-care message.   "
+71,TM,"Ultra-detailed cinematic view of a narrow street in Tokyo's neon district at night. Hyper-realistic neo-noir style, 8K, highest detail, wet asphalt reflecting countless lights, silhouettes of people with umbrellars, light rain creating glares. The scene is completely filled with multi-layered signs and text elements:  **DOMINANT NEON SIGNS:** - Left: Red neon vertical sign ""居酒屋"" in traditional Japanese calligraphy font, hanging at an angle. - Right: Large pink neon ""KARAOKE ∞"" sign in bold grotesque font (like Impact). - Center: Yellow neon ""RAMEN || 24H"" sign in technical monospace font (OCR A Extended).  **MATHEMATICAL & SCIENTIFIC ELEMENTS:** - White hand-painted ""E = mc²"" on a window shutter in chalk-like font. - Black barrel sticker ""3/4 FULL"" in simple sans-serif (Arial Bold). - Blue spray-painted graffiti ""∇ × E = -∂B/∂t"" in clear stencil font (Stencil).  **MEDIUM-SIZED SIGNS & STICKERS:** - Wooden pub sign ""PUB 'THE OWL' →"" in Gothic serif font (Old English). - Phone booth stickers: ""LOST CAT // REWARD $$$"" (handwritten), ""BAND NEEDS BASSIST (555) 123-4567"" (typewriter), ""TODAY IS A GOOD DAY"" (print). - Digital display ""TIME: 23:59 TEMP: 17°C"" in seven-segment font (Digital-7).  **SMALL DETAILS & ATMOSPHERIC TEXT:** - Trash can warning ""FLAMMABLE! ↑"" in bold warning font. - Door sign ""PUSH → THEN PULL"" in simple sans-serif (Helvetica). - Street graffiti ""TURN LEFT ↑ FOR COFFEE"" in uneven chalk font. - Movie poster ""NEON DREAMS"" in retro Broadway font with ""COMING SOON"" subtitle. - Address plate ""住所: 7-13-2"" in thin geometric sans-serif. - Manhole cover ""WATER ∇ ELECTRIC"" in stamped metal industrial font. - Second-floor sign ""MASSAGE & SPA ▽"" in elegant cursive (Brush Script). - Menu board ""BEER ¥500 / COCKTAILS ¥700 / RAMEN ¥900"" in marker-style font. - Truck logo ""FAST DELIVERY CO. → 24/7"" in semi-bold grotesque (Franklin Gothic). - Warning sign ""CAUTION: WET FLOOR!"" in bold slab serif (Rockwell). - Exit sign ""EXIT → EMERGENCY ONLY"" in glowing green emergency font.  Color palette: Dominant neon colors - electric blue, hot pink, vibrant red, yellow, green against dark urban background of black, concrete grey, and wet asphalt reflections. Shallow depth of field focused on the center of the street with foreground and background elements slightly blurred but still readable. "
+72,TM,"Interior lifestyle shot of a realistic artificial Christmas tree in a cozy living room setting, daylight illumination, 8K hyperrealistic photography. The tree stands tall and symmetrical on a sturdy metal base, its lush green PVC branches full and naturally layered, awaiting decoration.  Scene composition: The tree is positioned beside a white fireplace adorned with evergreen garlands, pinecones, and candles, with a matching wreath above. Warm yellow walls and wooden flooring create a comforting, festive atmosphere. Natural light streams through large French doors, softly highlighting the tree’s texture and subtle shadows. A green velvet pouf and minimalist side table with golden decor pieces complete the composition.  Lighting: warm, diffused winter daylight — emphasizing realism, color depth, and natural softness of the needles. Color palette: deep evergreen, warm beige, ivory white, golden accents, and soft natural light tones. Mood: calm anticipation, cozy elegance, pre-holiday serenity — capturing the quiet beauty of seasonal preparation.  Optional text elements for layout: – Header: “Bring the Holiday Spirit Home” in elegant serif (e.g., Playfair Display Bold). – Subtext: “Full and lifelike artificial pine for timeless festive charm.” in light sans-serif (e.g., Lato Light). – Tagline: “Ready to decorate. Built to last.” in small caps geometric sans-serif (e.g., Futura PT Medium).   "
+73,,
+74,,
+75,,
