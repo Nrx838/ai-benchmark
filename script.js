@@ -118,8 +118,8 @@ function renderGallery(data) {
 
         // Snap-scroll behavior: wheel moves between full cards (no partial views).
         // If user keeps scrolling past edges, navigate to next/previous row.
-        const RIGHT_EDGE_THRESHOLD = 8; // px tolerance
-        const LEFT_EDGE_THRESHOLD = 8;
+        const RIGHT_EDGE_THRESHOLD = 10; // px tolerance
+        const LEFT_EDGE_THRESHOLD = 10;
         let wheelLocked = false; // simple throttle to avoid rapid double-navigations
         modelsGrid.addEventListener('wheel', function(e) {
             e.preventDefault();
